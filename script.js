@@ -1,0 +1,21 @@
+let menuToggle = document.getElementById("menuToggle");
+let navLinks = document.getElementById("navLinks");
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", function () {
+    navLinks.classList.toggle("active");
+  });
+}
+
+window.addEventListener("scroll", () => {
+  const cards = document.querySelectorAll(".skill-card, .project-card");
+
+  cards.forEach((card) => {
+    const cardTop = card.getBoundingClientRect().top;
+
+    if (cardTop < window.innerHeight - 100) {
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0)";
+    }
+  });
+});
